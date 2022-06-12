@@ -6,6 +6,8 @@ const image = document.querySelector("img");
 const title = document.getElementById("title");
 const artist = document.getElementById("artist");
 
+let songIndex = 0;
+
 const songsList = [
   {
     name: "anger",
@@ -54,13 +56,35 @@ playBtn.addEventListener("click", () => {
   isPlay ? pauseSong() : playSong();
 });
 
+function prevSong() {
+  songIndex--;
+  if (songIndex < 0) {
+    songIndex = songsList.length - 1;
+  }
+
+  loadSong(songsList[songIndex]);
+  playSong();
+}
+
+function nextSong() {
+  songIndex++;
+  if (songIndex > songsList.length - 1) {
+    songIndex = 0;
+  }
+
+  loadSong(songsList[songIndex]);
+  playSong();
+}
+
 function loadSong(song) {
   title.textContent = song.songTitle;
   artist.textContent = song.artistName;
-  music.src = `music/${song.name}`;
-  image.src = `img/${song.name}`;
-  console.log(image.src);
+  music.src = `music/${song.name}.mp3`;
+  image.src = `img/${song.name}.jpeg`;
   console.log(music.src);
 }
 
 loadSong(songsList[2]);
+
+prevBtn.addEventListener("click", prevSong);
+nextBtn.addEventListener("click", nextSong);
