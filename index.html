@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="player-container">
+      <!-- Song -->
+      <div class="img-container">
+        <img src="img/anger.jpeg" alt="Album Art" />
+      </div>
+      <h2 class="title">Anger Machine</h2>
+      <h3 class="artist">NTR Jr.</h3>
+      <audio src="music/anger.mp3"></audio>
+
+      <!--Progress Bar-->
+      <div class="progress-container" id="progress-container">
+        <div class="progress" id="progress"></div>
+        <div class="duration-wrapper">
+          <span id="current-time">0.00</span>
+          <span id="duration">2.06</span>
+        </div>
+      </div>
+
+      <!--Controls of Progress Bar-->
+      <div class="player-controls">
+        <i class="fas fa-backward" id="prev" title="Previos"></i>
+        <i class="fas fa-play main-button" id="play" title="Play"></i>
+        <i class="fas fa-forward" id="next" title="Next"></i>
+      </div>
+    </div>
     <!-- Script -->
     <script src="script.js"></script>
   </body>
